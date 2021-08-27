@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/master/schema/markdownlint-config-schema.json",
+  "blanks-around-headers": false,
+  "blanks-around-lists": false,
+  "no-duplicate-heading": false,
+  "line-length": {
+    "line_length": 120,
+    "code_blocks": false
+  }
+}
