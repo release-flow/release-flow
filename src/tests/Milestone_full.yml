@@ -1,0 +1,12 @@
+# YAML config file
+
+trunkBranchName: 'main'
+releaseBranchPrefix: 'myrelease/'
+workingBranchPrefixes:
+- feat-
+- bug-
+stripBranchPrefixFromLabel: false
+failOnUnknownPrefix: false
+strategy:
+  kind: Milestone
+  baseNumber: 2

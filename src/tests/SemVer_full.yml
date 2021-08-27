@@ -1,0 +1,10 @@
+trunkBranchName: 'main'
+releaseBranchPrefix: 'myrelease/'
+workingBranchPrefixes:
+- feat-
+- bug-
+stripBranchPrefixFromLabel: false
+failOnUnknownPrefix: false
+strategy:
+  kind: SemVer
+  baseNumber: '2.1'
