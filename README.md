@@ -123,12 +123,19 @@ strategy:
 # The prefix that identifies a release branch. Default = 'release/'
 releaseBranchPrefix: 'myrelease/'
 
-# A format string that controls how to generate the PreReleaseLabel value. The
-# format string may contain the following tokens that are substituted:
-#  - %type% The type of branch, identified by its prefix e.g. feature/ bugfix/
-#  - %name% The name of the branch, omitting the prefix
-# Default value is '%type%-%name%'
-preReleaseLabelFormat: '%name%'
+# Prefixes for working branches (not release or trunk). Defaults to
+# ['feature/', 'bugfix/', '- hotfix/', 'merge/']
+workingBranchPrefixes:
+- feat-
+- bug-
+
+# Whether to remove the working branch prefix from the branch name when generating the preReleaseLabel.
+# Default: true
+stripBranchPrefixFromLabel: false
+
+# Whether to fail with an error if the branch is not recognised as release or trunk, and its prefix doesn't match
+# a working branch prefix. Default: true
+failOnUnknownPrefix: false
 
 # The name of the trunk or long-running branch in Release Flow. Defaults to
 # 'master' for backward compatibility.
@@ -187,8 +194,8 @@ understanding, consult the source code! - but basically it assumes that:
 
 - Creating tags in the form `vX.Y[.Z]` triggers a full release build.
 
-- `bugfix/*`, `hotfix/*`, and `feature/*` branches are working branches that are branched from `trunk` and intended to
-  be merged back to `trunk`. The changes *might* get cherry-picked onto a `release/*` branch.
+- Any other branches (e.g. `bugfix/*`, `hotfix/*`, and `feature/*`) are _working branches_ that are branched from
+  `trunk` and intended to be merged back to `trunk`. The changes _might_*_ get cherry-picked onto a `release/*` branch.
 
 ## Other release flows
 
