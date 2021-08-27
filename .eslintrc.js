@@ -2,17 +2,13 @@ module.exports = {
   root: true,
   extends: ['plugin:@typescript-eslint/recommended', 'plugin:mocha/recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier', 'mocha', 'eslint-plugin-import'],
+  plugins: ['@typescript-eslint', 'prettier', 'mocha', 'import'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       typescript: {},
-    },
-    react: {
-      // Dummy value to keep eslint quiet
-      version: '16.3',
     },
   },
   rules: {
@@ -31,7 +27,7 @@ module.exports = {
     ],
     '@typescript-eslint/indent': [2, 2],
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-    'linebreak-style': ['error', require('os').EOL === '\r\n' ? 'windows' : 'unix'],
+    'linebreak-style': ['error', 'unix'],
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
     'import/extensions': ['error', { ts: 'ignorePackages' }],
     'no-plusplus': 'off',

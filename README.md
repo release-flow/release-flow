@@ -77,11 +77,11 @@ Possible values:
 
 | Value | Meaning |
 | ----- | ------- |
-| `alpha` | Build is on the trunk branch |
-| `beta` | Build is on a `release/*` branch |
+| `alpha` | Build is from a commit on the trunk branch |
+| `beta` | Build is from a commit on a `release/*` branch |
 | `release` | Build is from a release tag |
 | `pull-request` | Build is from a `refs/pull/*` branch |
-| `working-branch` | Build is from another branch, assumed to be a short-lived working branch |
+| `working-branch` | Build is from a commit on another branch, assumed to be a short-lived working branch |
 
 ##### 2. Version Source
 
@@ -195,7 +195,7 @@ understanding, consult the source code! - but basically it assumes that:
 - Creating tags in the form `vX.Y[.Z]` triggers a full release build.
 
 - Any other branches (e.g. `bugfix/*`, `hotfix/*`, and `feature/*`) are _working branches_ that are branched from
-  `trunk` and intended to be merged back to `trunk`. The changes _might_*_ get cherry-picked onto a `release/*` branch.
+  `trunk` and intended to be merged back to `trunk`. The changes _might_ get cherry-picked onto a `release/*` branch.
 
 ## Other release flows
 
