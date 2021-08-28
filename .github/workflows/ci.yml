@@ -1,6 +1,6 @@
 # This workflow runs full unit tests on a matrix of OS and NodeJS combinations.
 
-name: CI (full)
+name: CI
 
 on:
   # Trigger the workflow on push or pull request,

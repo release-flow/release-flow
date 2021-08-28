@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add badges to README like all the cool kids.
+
+### Changed
+- Change name of CI pipeline.
 ### Fixed
 - Minor documentation fixes.
 

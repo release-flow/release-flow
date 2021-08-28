@@ -3,9 +3,13 @@
 
 This package provides a library and command-line tool that generate a unique version number for a Git commit by
 analysing a Git repository. The repo is assumed to follow [Release
-Flow](https://devblogs.microsoft.com/devops/release-flow-how-we-do-branching-on-the-vsts-team/) conventions.
+Flow](https://devblogs.microsoft.com/devops/release-flow-how-we-do-branching-on-the-vsts-team/) conventions. The command
+outputs version variables based on information in the repository.
 
-The command outputs version variables based on information in the repository.
+[![NPM version](https://badge.fury.io/js/@release-flow%2Frelease-flow.svg)](https://badge.fury.io/js/@release-flow%2Frelease-flow)
+![License](https://img.shields.io/github/license/release-flow/release-flow)
+![Build](https://github.com/release-flow/release-flow/actions/workflows/ci.yml/badge.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Installation
 
