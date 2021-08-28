@@ -10,8 +10,6 @@ Please note we have a [code of conduct](./CODE_OF_CONDUCT.md), please follow it 
 
 ## How can I contribute?
 
----
-
 ### Reporting bugs
 
 Feel free to [open a ticket](https://github.com/release-flow/core/issues/new) with your bug report.
@@ -80,8 +78,6 @@ npm link release-flow
 
 ## Style guide
 
----
-
 ### Git commit messages
 
 - Use the present tense ("Add feature" not "Added feature")
@@ -97,8 +93,6 @@ npm link release-flow
 All Typescript code is linted with [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
 
 ## Release process
-
----
 
 (These are mainly notes for the maintainer, if you are contributing you won't need to worry about this)
 
