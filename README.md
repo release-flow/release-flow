@@ -10,7 +10,7 @@ The command outputs version variables based on information in the repository.
 ## Installation
 
 ```shell
-npm install release-flow-git-version
+npm install @release-flow/release-flow
 ```
 
 ## Command-line usage
