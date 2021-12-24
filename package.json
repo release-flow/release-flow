@@ -24,7 +24,7 @@
     "git-version",
     "release-flow"
   ],
-  "author": "Rich Tebb <rich@tebb.io>",
+  "author": "Release Flow <info@releaseflow.io>",
   "license": "ISC",
   "repository": {
     "type": "git",
