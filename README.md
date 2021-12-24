@@ -31,6 +31,8 @@ You can see a full list of command-line options as follows:
 npx rfver --help
 ```
 
+Or check out the [source code](./src/cli.ts).
+
 ## Output
 
 The command outputs properties that provide a unique version for the current commit:
