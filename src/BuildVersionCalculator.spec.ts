@@ -229,6 +229,38 @@ describe('BuildVersionCalculator tests', function () {
     expect(res.commitsSinceVersionSource).to.equal(0, 'commitsSinceVersionSource');
   });
 
+  it('detects correct build from release branch tag using refs/heads/tags (milestone) @unit', async function () {
+    const strategyOptions: MilestoneOptions = { kind: 'Milestone', prefix: 'R', baseNumber: 0 };
+    const options: Options = {
+      ...DefaultOptions,
+      ...{
+        useOriginBranches: false,
+        strategy: strategyOptions,
+      },
+    };
+
+    const master = testHelper.createBasicMilestoneGraph();
+    const release2 = master.branch('release/R2');
+    release2.commit('Cherry-pick fix').tag('v2.0');
+    master.commit('Next commit 1');
+    master.commit('Next commit 2');
+
+    const commit = await testHelper.checkout(release2);
+
+    sut = new BuildVersionCalculator(log, options);
+    const res = await sut.getBuildVersionInfo('refs/heads/tags/v2.0', undefined);
+    expect(res).to.not.be.null;
+    expect(res.major).to.equal(2, 'major');
+    expect(res.minor).to.equal(0, 'minor');
+    expect(res.patch).to.equal(0, 'patch');
+    expect(res.preReleaseLabel).to.be.null;
+    expect(res.sha).to.equal(commit.sha);
+    expect(res.buildType).to.equal('release');
+    expect(res.branchName).to.equal('tags/v2.0');
+    expect(res.commitDate).to.be.sameMoment(commit.date);
+    expect(res.commitsSinceVersionSource).to.equal(0, 'commitsSinceVersionSource');
+  });
+
   it('detects correct build from release branch commit with tags (milestone) @unit', async function () {
     const strategyOptions: MilestoneOptions = { kind: 'Milestone', prefix: 'R', baseNumber: 0 };
     const options: Options = {
@@ -544,6 +576,38 @@ describe('BuildVersionCalculator tests', function () {
 
     sut = new BuildVersionCalculator(log, options);
     const res = await sut.getBuildVersionInfo('refs/tags/v2.0.0', undefined);
+    expect(res).to.not.be.null;
+    expect(res.major).to.equal(2, 'major');
+    expect(res.minor).to.equal(0, 'minor');
+    expect(res.patch).to.equal(0, 'patch');
+    expect(res.preReleaseLabel).to.be.null;
+    expect(res.sha).to.equal(commit.sha);
+    expect(res.buildType).to.equal('release');
+    expect(res.branchName).to.equal('tags/v2.0.0');
+    expect(res.commitDate).to.be.sameMoment(commit.date);
+    expect(res.commitsSinceVersionSource).to.equal(0, 'commitsSinceVersionSource');
+  });
+
+  it('detects correct build from release branch tag using refs/heads/tags (semver) @unit', async function () {
+    const strategyOptions: SemVerOptions = { kind: 'SemVer', baseNumber: '0.0' };
+    const options: Options = {
+      ...DefaultOptions,
+      ...{
+        useOriginBranches: false,
+        strategy: strategyOptions,
+      },
+    };
+
+    const master = testHelper.createBasicSemVerGraph();
+    const release2 = master.branch('release/2.0');
+    release2.commit('Cherry-pick fix').tag('v2.0.0');
+    master.commit('Next commit 1');
+    master.commit('Next commit 2');
+
+    const commit = await testHelper.checkout(release2);
+
+    sut = new BuildVersionCalculator(log, options);
+    const res = await sut.getBuildVersionInfo('refs/heads/tags/v2.0.0', undefined);
     expect(res).to.not.be.null;
     expect(res.major).to.equal(2, 'major');
     expect(res.minor).to.equal(0, 'minor');

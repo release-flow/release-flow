@@ -300,11 +300,11 @@ export default class BuildVersionCalculator {
 
   private async tryMatchReleaseTag(sourceRef: string, currentCommit: GitCommitInfo): Promise<BuildContext | false> {
     let match: RegExpExecArray | null = null;
-    if (!(match = /^refs\/tags\/(?<Version>v.*)$/.exec(sourceRef))) {
+    if (!(match = /^refs\/(heads\/)?tags\/(?<Version>v.*)$/.exec(sourceRef))) {
       return false;
     }
     // *** Build triggered by a tag in the (possible) format of a version ***
-    const [, version] = match;
+    const [,, version] = match;
     this.log.debug(`Trigger is release tag, version = '${version}'`);
     const buildType = BuildType.Release;
     const preReleaseLabel = null;
