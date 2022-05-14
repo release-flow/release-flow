@@ -102,7 +102,9 @@ GitHub release locally by using `release-it`, then you publish the release throu
 To create a draft release:
 
 1. On your local computer, checkout the `main` branch.
-2. Update the [changelog](./CHANGELOG.md).
+
+2. Update the [changelog](./CHANGELOG.md), ensuring you add an `## [Unreleased]` section.
+
 3. Run `npm run release` with the options you want, then follow the prompts. The two most useful options are `--dry-run`
    and `--preRelease=alpha` (or whatever the pre-release version is). Note that you need to add `--` before any release-it
    arguments.
