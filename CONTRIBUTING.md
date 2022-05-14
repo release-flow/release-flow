@@ -94,14 +94,14 @@ All Typescript code is linted with [ESLint](https://eslint.org/) and [Prettier](
 
 ## Release process
 
-(These are mainly notes for the maintainer, if you are contributing you won't need to worry about this)
+(These are mainly notes for the maintainer, if you are contributing a PR you won't need to worry about this)
 
 The release process is driven by [release-it](https://github.com/release-it/release-it). First you create a draft
 GitHub release locally by using `release-it`, then you publish the release through the GitHub web UI.
 
 To create a draft release:
 
-1. On your local computer, checkout the `master` branch.
+1. On your local computer, checkout the `main` branch.
 2. Update the [changelog](./CHANGELOG.md).
 3. Run `npm run release` with the options you want, then follow the prompts. The two most useful options are `--dry-run`
    and `--preRelease=alpha` (or whatever the pre-release version is). Note that you need to add `--` before any release-it
