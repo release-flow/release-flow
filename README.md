@@ -17,6 +17,8 @@ outputs version variables based on information in the repository.
 npm install @release-flow/release-flow
 ```
 
+Note: if you're using this within an Azure DevOps pipeline, you might want to check out the [custom extension](https://github.com/release-flow/azure-pipelines-extension), which is based on this library.
+
 ## Command-line usage
 
 Example:
