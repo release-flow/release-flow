@@ -20,7 +20,6 @@ jobs:
         node:
           - 16
           - 14
-          - 12
         os:
           - 'windows-latest'
           - 'ubuntu-latest'
