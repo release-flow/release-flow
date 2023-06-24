@@ -52,7 +52,7 @@ export class ConfigurationReader {
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  private isOptions(maybeOptions: string | number | object | null | undefined): maybeOptions is Partial<RepoOptions> {
+  private isOptions(maybeOptions: string | number | null | undefined | unknown): maybeOptions is Partial<RepoOptions> {
     if (maybeOptions === null || typeof maybeOptions !== 'object') {
       throw new ConfigurationError('Invalid configuration file');
     }
@@ -77,7 +77,7 @@ export class ConfigurationReader {
         break;
 
       default:
-        throw new ConfigurationError(`Unsupported strategy kind '${data.strategy.kind}'`);
+        throw new ConfigurationError(`Unsupported strategy kind '${kind}'`);
     }
 
     return true;
