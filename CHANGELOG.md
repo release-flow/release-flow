@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update various NPM packages to latest versions.
 
+## Removed
+
+- Remove support for Node v12 (see [issue](https://github.com/release-flow/release-flow/issues/21)).
+
 ## [0.1.3] - 2023-03-05
 
 ### Security
