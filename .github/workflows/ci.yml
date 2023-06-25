@@ -19,7 +19,8 @@ jobs:
       matrix:
         node:
           - 16
-          - 14
+          - 18
+          - 20
         os:
           - 'windows-latest'
           - 'ubuntu-latest'
